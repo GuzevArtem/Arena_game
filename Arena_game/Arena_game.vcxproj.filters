@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\classes">
+      <UniqueIdentifier>{0b2c358d-cc3c-454d-8e10-deee0f414b79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\classes\general">
+      <UniqueIdentifier>{160aaffc-73da-49ac-8127-d5cefa44bc01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\classes">
+      <UniqueIdentifier>{6259a200-e8f7-419e-ab33-48e0966b80fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\classes\general">
+      <UniqueIdentifier>{718e862f-2d58-4c40-965c-c6f6fb4f2f6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\classes\graphics">
+      <UniqueIdentifier>{66030bf6-4a18-4c9b-808a-f19642e8b054}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\classes\graphics">
+      <UniqueIdentifier>{69ffde6a-ffc2-445c-9ef1-543a95bdb016}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="classes\general\ai.cpp">
+      <Filter>Source Files\classes\general</Filter>
+    </ClCompile>
+    <ClCompile Include="classes\general\character.cpp">
+      <Filter>Source Files\classes\general</Filter>
+    </ClCompile>
+    <ClCompile Include="classes\general\map.cpp">
+      <Filter>Source Files\classes\general</Filter>
+    </ClCompile>
+    <ClCompile Include="classes\general\pawn.cpp">
+      <Filter>Source Files\classes\general</Filter>
+    </ClCompile>
+    <ClCompile Include="classes\general\Weapon.cpp">
+      <Filter>Source Files\classes\general</Filter>
+    </ClCompile>
+    <ClCompile Include="Source.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="classes\graphics\Graphics.cpp">
+      <Filter>Source Files\classes\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="classes\Global.cpp">
+      <Filter>Source Files\classes</Filter>
+    </ClCompile>
+    <ClCompile Include="classes\Object.cpp">
+      <Filter>Source Files\classes</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="classes\general\ai.h">
+      <Filter>Header Files\classes\general</Filter>
+    </ClInclude>
+    <ClInclude Include="classes\general\character.h">
+      <Filter>Header Files\classes\general</Filter>
+    </ClInclude>
+    <ClInclude Include="classes\general\map.h">
+      <Filter>Header Files\classes\general</Filter>
+    </ClInclude>
+    <ClInclude Include="classes\general\pawn.h">
+      <Filter>Header Files\classes\general</Filter>
+    </ClInclude>
+    <ClInclude Include="classes\general\Weapon.h">
+      <Filter>Header Files\classes\general</Filter>
+    </ClInclude>
+    <ClInclude Include="classes\graphics\Graphics.h">
+      <Filter>Header Files\classes\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="classes\Object.h">
+      <Filter>Header Files\classes</Filter>
+    </ClInclude>
+    <ClInclude Include="classes\Global.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
