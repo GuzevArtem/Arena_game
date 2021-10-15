@@ -16,8 +16,8 @@ void Object::Draw()
 	int n = 36, r = Pawn_Size();
 	for (int i = 0; i < n; i++)
 	{
-		glVertex2f(GetCurrentPosition(X) + r*cos(3.1416f*((float)i * 2 / n) + GetCurrentPosition(R)) ,
-					GetCurrentPosition(Y) + r*sin(3.1416f*((float)i * 2 / n) + GetCurrentPosition(R)));
+		glVertex2f(GetCurrentPosition(X) + r*cos(3.1416f*((double)i * 2 / n) + GetCurrentPosition(R)) ,
+					GetCurrentPosition(Y) + r*sin(3.1416f*((double)i * 2 / n) + GetCurrentPosition(R)));
 	}
 	glEnd();
 }

@@ -42,7 +42,6 @@ Graphics::Graphics()
 }
 Graphics::~Graphics()
 {
-	map->~Map();
 	delete map;
 }
 
@@ -259,32 +258,41 @@ void Graphics::Display(void)
 		glColor3f(0 , 0 , 0);
 		DrawSqure(-200 , -40 , 200 , 80 , GL_LINE_LOOP);
 
-		if (!restart)
+		if (!restart && !new_game)
 		{
-			if (win)
-			{
-				//winner = WinCondition();
+			DrawColorText(this, 0, 0, 0, "Want to restart?", 1, -20);
+			DrawColorText(this, 0, 0, 0, "[Y/N]", 1, -40);
 
-				std::string s = " WIN!";
-				s.insert(0 , winner->GetName());
-				DrawColorText(this , 1 , 0.2 , 0.2 , s , 0 + 1 , 20);
-				DrawColorText(this , 1 , 0.2 , 0.2 , s , 0 , 20 - 1);
-				DrawColorText(this , 1 , 0.2 , 0.2 , s , 0 , 20);
+			DrawColorText(this, 0, 0, 0, "Want to restart?", 0, -20 - 1);
+			DrawColorText(this, 0, 0, 0, "[Y/N]", 0, -40 - 1);
 
-				s = "With  kills.";
-				s.insert(6 , Global::ToString(winner->GetKillCount()));
-				DrawColorText(this , 1 , 0.2 , 0.2 , s , 0 , 0);
-			}
-			if (map->GetObjectListElem(0)->GetCurrentPosition(X) == DEATH_PLACE)
-			{
-				DrawColorText(this , 1 , 0.2 , 0.2 , "YOU DIED!" , 0 + 1 , 0);
-				DrawColorText(this , 1 , 0.2 , 0.2 , "YOU DIED!" , 0 , 0 - 1);
-				DrawColorText(this , 1 , 0.2 , 0.2 , "YOU DIED!" , 0 , 0);
-			}
+			DrawColorText(this, 0, 0, 0, "Want to restart?", 0, -20);
+			DrawColorText(this, 0, 0, 0, "[Y/N]", 0, -40);
+			Pause();
 		}
+
+		if (map->GetObjectListElem(0)->GetCurrentPosition(X) == DEATH_PLACE)
+		{
+			DrawColorText(this, 1, 0.2, 0.2, "YOU DIED!", 0 + 1, 0);
+			DrawColorText(this, 1, 0.2, 0.2, "YOU DIED!", 0, 0 - 1);
+			DrawColorText(this, 1, 0.2, 0.2, "YOU DIED!", 0, 0);
+		}
+
+		if (win)
+		{
+			std::string s = " WIN!";
+			s.insert(0, winner->GetName());
+			DrawColorText(this, 1, 0.2, 0.2, s, 0 + 1, 20);
+			DrawColorText(this, 1, 0.2, 0.2, s, 0, 20 - 1);
+			DrawColorText(this, 1, 0.2, 0.2, s, 0, 20);
+
+			s = "With  kills.";
+			s.insert(5, Global::ToString(winner->GetKillCount()));
+			DrawColorText(this, 1, 0.2, 0.2, s, 0, 0);
+		}
+
 		if (restart)
 		{
-
 			DrawColorText(this , 0 , 0 , 0 , "Want to restart?" , map->GetObjectListElem(0)->GetCurrentPosition(X) + 1 , map->GetObjectListElem(0)->GetCurrentPosition(Y) - 20);
 			DrawColorText(this , 0 , 0 , 0 , "[Y/N]" , map->GetObjectListElem(0)->GetCurrentPosition(X) + 1 , map->GetObjectListElem(0)->GetCurrentPosition(Y) - 40);
 
@@ -293,18 +301,6 @@ void Graphics::Display(void)
 
 			DrawColorText(this , 0 , 0 , 0 , "Want to restart?" , map->GetObjectListElem(0)->GetCurrentPosition(X) , map->GetObjectListElem(0)->GetCurrentPosition(Y) - 20);
 			DrawColorText(this , 0 , 0 , 0 , "[Y/N]" , map->GetObjectListElem(0)->GetCurrentPosition(X) , map->GetObjectListElem(0)->GetCurrentPosition(Y) - 40);
-		}
-		else
-		{
-			DrawColorText(this , 0 , 0 , 0 , "Want to restart?" , 1 , -20);
-			DrawColorText(this , 0 , 0 , 0 , "[Y/N]" , 1 , -40);
-
-			DrawColorText(this , 0 , 0 , 0 , "Want to restart?" , 0 , -20 - 1);
-			DrawColorText(this , 0 , 0 , 0 , "[Y/N]" , 0 , -40 - 1);
-
-			DrawColorText(this , 0 , 0 , 0 , "Want to restart?" , 0 , -20);
-			DrawColorText(this , 0 , 0 , 0 , "[Y/N]" , 0 , -40);
-			Pause();
 		}
 
 		restart = true;
@@ -857,8 +853,8 @@ void Graphics::AILOGIC(AI *a)
 		if (abs(a->GetCurrentPosition(Y)) > map->GetHeight()*0.75)
 		{
 			if (a->GetCurrentPosition(Y) > 0)
-				a->Object::Move(Global::Max_speed()*0.5 , Object::Angle(a , (double)map->GetHeight() , 0) + 180 + (rand() % 201 - 100));
-			else a->Object::Move(Global::Max_speed()*0.5 , Object::Angle(a , -1*(map->GetHeight()) , 0) + 180 + (rand() % 201 - 100));
+				a->Object::Move(Global::Max_speed()*0.5 , Object::Angle(a , (double)map->GetHeight() , 0) + 0 + (rand() % 201 - 100));
+			else a->Object::Move(Global::Max_speed()*0.5 , Object::Angle(a , -1*(map->GetHeight()) , 0) + 0 + (rand() % 201 - 100));
 			t++;
 		}
 		if (t > 0)
@@ -1195,7 +1191,7 @@ void Graphics::Keyboard(unsigned char cc , int x , int y)
 		}
 		case 'r':
 		{
-			//std::cout << "You vant to restart? [Y/N]?\n";
+			//std::cout << "You want to restart? [Y/N]?\n";
 			win = false;
 			restart = true;
 			Pause();
@@ -1207,7 +1203,7 @@ void Graphics::Keyboard(unsigned char cc , int x , int y)
 				UnPause();
 			else
 				Pause();
-			if (restart = true)
+			if (restart)
 				restart = false;
 			break;
 		}
@@ -1221,7 +1217,7 @@ void Graphics::Keyboard(unsigned char cc , int x , int y)
 			{
 				timer = 36000;
 				//std::cout << "Restarting\n";
-				map->~Map();
+				delete map;
 				map = new Map();
 
 				if (GetMapType())
@@ -1245,7 +1241,13 @@ void Graphics::Keyboard(unsigned char cc , int x , int y)
 				UnPause();
 				restart = false;
 				if (static_cast<Character*>(map->GetObjectListElem(0))->GetState() == DIED || win)
-					exit(0);
+				{
+					new_game = true;
+					win = false;
+					static_cast<Character*>(map->GetObjectListElem(0))->SetState(PLAYING);
+					Pause();
+					// TODO causing AI to drop out from the map
+				}
 				break;
 			}
 			if (new_game)
@@ -1265,7 +1267,7 @@ void Graphics::Keyboard(unsigned char cc , int x , int y)
 			{
 				win = false;
 				timer = 36000;
-				map->~Map();
+				delete map;
 				map = new Map();
 
 				if (GetMapType())

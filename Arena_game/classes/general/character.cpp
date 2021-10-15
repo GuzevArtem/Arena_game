@@ -71,7 +71,7 @@ void Character::Interact_with(Weapon *weapon)
 
 void Character::Draw()
 {
-	if (GetWeapon() != NULL && 0.5 * GetWeapon()->GetWeaponStat(Distance_b) >= Pawn_Size() * 1 / 3 + 5)
+	if (GetWeapon() != NULL && 0.5 * GetWeapon()->GetWeaponStat(Distance_b) >= Pawn_Size() / 3.0 + 5)
 	{
 		GetWeapon()->SetCurrentPosition(GetCurrentPosition(X) , GetCurrentPosition(Y) , 0);
 		GetWeapon()->Draw();
@@ -83,13 +83,13 @@ void Character::Draw()
 	glBegin(GL_POLYGON);
 	for (int i = 0; i < n; i++)
 	{
-		glVertex2f(GetCurrentPosition(X) + Pawn_Size()*cos(3.1416f*((float)i * 2 / n) + GetCurrentPosition(R)) ,
-					GetCurrentPosition(Y) + Pawn_Size()*sin(3.1416f*((float)i * 2 / n) + GetCurrentPosition(R)));
+		glVertex2f(GetCurrentPosition(X) + Pawn_Size()*cos(3.1416f*((double)i * 2 / n) + GetCurrentPosition(R)) ,
+					GetCurrentPosition(Y) + Pawn_Size()*sin(3.1416f*((double)i * 2 / n) + GetCurrentPosition(R)));
 
 	}
 	glEnd();
 
-	if (GetWeapon() != NULL && 0.5 * GetWeapon()->GetWeaponStat(Distance_b) < Pawn_Size() * 1 / 3 + 5)
+	if (GetWeapon() != NULL && 0.5 * GetWeapon()->GetWeaponStat(Distance_b) < Pawn_Size() / 3.0 + 5)
 	{
 		GetWeapon()->SetCurrentPosition(GetCurrentPosition(X) , GetCurrentPosition(Y) , 0);
 		GetWeapon()->Draw();

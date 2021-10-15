@@ -74,7 +74,7 @@ unsigned Map::SpawnActors(unsigned players)
 	double fi;
 	for (int i = 1; i < players; i++)
 	{
-		fi = 3.1416f*((float)i * 2 / players);
+		fi = 3.1416f*((double)i * 2 / players);
 
 		Object_list.push_back(new AI);
 
@@ -104,7 +104,8 @@ unsigned Map::SpawnActors(unsigned players)
 	{
 		name = "Weapon_";
 		name.insert(name.length() , ToString(i));
-		fi = 3.1416f*((float)i * 2 / (players*perPlayer));
+		const unsigned int c = players * (unsigned int)perPlayer;
+		fi = 3.1416f*((double)i * 2 / c);
 
 		Object_list.push_back(new Weapon);
 

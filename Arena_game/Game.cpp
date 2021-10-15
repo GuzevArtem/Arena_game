@@ -2,6 +2,7 @@
 
 Game::Game()
 {
+	map_type = false;
 	run = true;
 	pause = false;
 }
@@ -32,7 +33,7 @@ void Game::SetMapSizes(unsigned w , unsigned h)
 	if (w >= 100)
 		default_width = w;
 	if (h >= 100)
-		default_height = w;
+		default_height = h;
 }
 bool Game::GetMapType()
 {

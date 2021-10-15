@@ -54,22 +54,7 @@ public:
 
 	std::string ToString(unsigned num)
 	{
-
-		if (num == 0)
-			return "0";
-
-		int l = (int)log10(num) + 1;
-
-		std::string str;
-		str.insert(0 , l , '\0');
-
-		for (int i = 0; i < l; i++)
-		{
-			str[i] = (int)num / pow(10 , l - i - 1) + 48;
-			num -= pow(10 , l - i - 1)*(str[i] - 48);
-		}
-
-		return str;
+		return std::to_string(num);
 	}
 	/*************************************************************/
 	/*********** End of Additional functions *********************/

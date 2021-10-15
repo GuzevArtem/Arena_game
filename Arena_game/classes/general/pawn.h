@@ -26,7 +26,8 @@ private:
 	Weapon* weapon;
 	unsigned kills = 0;
 public:
-	Pawn() {};
+	Pawn() : health(100), regen(1), armor(0), weapon(NULL)
+	{};
 	virtual ~Pawn() = 0;
 	void Spawn();
 	void Spawn(std::string new_name , int new_health , int new_regen , int new_armor , Weapon *new_weapon = NULL);
